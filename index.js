@@ -133,14 +133,6 @@ function scoreboard(/* CODE HERE */) {
   /* CODE HERE */
 }
 
-function getInningScore () {
-  let homeScoreCounter = 0;
-  let awayScoreCounter = 0;
-  homeScore = homeScore + varInning();
-  awayScore = awayScore + varInning();
-  finalScoreboard.push (`Inning ${i + 1}: ${awayScore} away - ${homeScore} home`)
-  }
-
 
 function finalScore2(varInning, numInnings){
   let finalScoreboard = [];
@@ -159,3 +151,10 @@ function finalScore2(varInning, numInnings){
   return finalScoreboard
 }
 console.log("Task4 Solution1: ", finalScore2(inning, 9));
+
+//below was me trying to create a getInningScore(), but I kept running into the problem of needing variables that only existed outside of the function, but would only be available when it was invoked inside the for loop. This would work when I did that exact thing, but it would be a otherwise weird chunk of code that couldn't work on it's own. Kinda the opposite of a Higher Order function that needs a callback to function, it'd be a callbackfunction that needs a Higher Order Function to work. Which just feels weird. I'll include it for the purposes of showing it works, but it just feels wrong... It would be used in place of lines 147 & 148. pointlessly. If the variables are defined in the function, they'll reset everytime.
+
+// function getInningScore () {
+//   homeScoreCounter = homeScoreCounter + varInning();
+//   awayScoreCounter = awayScoreCounter + varInning();
+//   }
